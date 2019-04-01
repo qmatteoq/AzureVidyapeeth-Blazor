@@ -33,13 +33,34 @@ else
             }
         </tbody>
     </table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in users)
+            {
+                <tr>
+                    <td>@user.Name</td>
+                    <td>@user.Surname</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
 @functions {
     WeatherForecast[] forecasts;
+    Person[] users;
 
     protected override async Task OnInitAsync()
     {
         forecasts = await Http.GetJsonAsync<WeatherForecast[]>("api/SampleData/WeatherForecasts");
+
+        users = await Http.GetJsonAsync<Person[]>("api/SampleData/Users");
     }
 }

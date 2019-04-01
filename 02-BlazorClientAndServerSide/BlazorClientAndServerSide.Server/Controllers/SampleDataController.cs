@@ -26,5 +26,14 @@ namespace BlazorClientAndServerSide.Server.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             });
         }
+
+        [HttpGet("[action]")]
+        public IEnumerable<Person> Users()
+        {
+            List<Person> users = new List<Person>();
+            users.Add(new Person { Name = "John", Surname = "Doe" });
+            users.Add(new Person { Name = "Mike", Surname = "Green" });
+            return users;
+        }
     }
 }
