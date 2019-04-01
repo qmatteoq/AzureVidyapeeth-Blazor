@@ -8,22 +8,3 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
-
-<button onclick="@ShowMessage">Say hello!</button>
-<p>Hello @result</p>
-
-<Component1 />
-
-<Counter Step="10" />
-
-
-@functions {
-
-    string result;
-
-    public async Task ShowMessage()
-    {
-        BlazorLibrary.ExampleJsInterop jsInterop = new ExampleJsInterop(JSRuntime);
-        result = await jsInterop.Prompt("What's your name?");
-    }
-}
